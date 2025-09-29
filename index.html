@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediCart - Mini E‑Commerce (Drugs)</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="logo">💊</span>
+      <h1>MediCart</h1>
+    </div>
+    <p class="tagline">Safe. Simple. Secure.</p>
+  </header>
+
+  <main class="container">
+    <!-- Prescription Gate -->
+    <section class="card prescription" id="prescription-section">
+      <h2>Step 1 · Provide Doctor's Prescription</h2>
+      <p class="muted">All medical drugs require a valid prescription to continue.</p>
+      <div class="prescription-form">
+        <div class="field">
+          <label for="rx-file">Upload prescription (image/PDF)</label>
+          <input type="file" id="rx-file" accept="image/*,.pdf" />
+        </div>
+        <div class="field field-row">
+          <input type="checkbox" id="rx-confirm" />
+          <label for="rx-confirm">I confirm this is a valid doctor's prescription</label>
+        </div>
+        <div class="actions">
+          <button id="rx-verify" class="btn primary">Verify Prescription</button>
+          <span id="rx-status" class="status badge">Not verified</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products and Cart -->
+    <section class="grid">
+      <div>
+        <section class="card" id="products-section">
+          <h2>Step 2 · Select Products</h2>
+          <div id="product-list" class="products"></div>
+        </section>
+      </div>
+      <div>
+        <section class="card" id="cart-section">
+          <h2>Step 3 · Your Cart</h2>
+          <ul id="cart-items" class="cart-items"></ul>
+          <div class="cart-summary">
+            <div class="row">
+              <span>Total:</span>
+              <strong id="cart-total">$0.00</strong>
+            </div>
+            <button id="checkout" class="btn success" disabled>Checkout</button>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>For demo purposes only. Always follow your doctor's guidance.</small>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    // Simple runtime guard for older browsers
+    if (!window.fetch) {
+      alert('Your browser is outdated. Please update for the best experience.');
+    }
+  </script>
+</body>
+</html>
+
+
